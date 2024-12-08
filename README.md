@@ -12,7 +12,7 @@ Third is where I tracked the time of the test cases
 Books Table:
 
 Columns:<br />
-book_id: Unique ID of the book (Primary Key).<br />
+book_id - Unique ID of the book (Primary Key).<br />
 title: Title of the book.<br />
 author: Author of the book.<br />
 isbn: ISBN number of the book.<br />
