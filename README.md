@@ -46,22 +46,22 @@ loan_by_id - Stores transactions indexed by transaction_id. <br />
 # Supported Operation (CRUD)   
 
 Books:<br />
-Create:    add_book()<br />
-Read:      search_book_by_id(), search_book_by_isbn()<br />
-Update:    update_book()<br />
-Delete:    remove_book()<br />
+Create -    add_book()<br />
+Read -      search_book_by_id(), search_book_by_isbn()<br />
+Update -    update_book()<br />
+Delete -    remove_book()<br />
 
 Users:<br />
-Create:    add_user()<br />
-Read:      search_user_by_id()<br />
-Update:    update_user()<br />
-Delete:    remove_user()<br />
+Create -   add_user()<br />
+Read -     search_user_by_id()<br />
+Update -    update_user()<br />
+Delete -    remove_user()<br />
 
 Transactions:<br />
-Create:    borrow_book(), return_book()<br />
-Read:      search_transaction_by_id(), search_transaction_by_user_id()<br />
-Update:    update_transaction_status()<br />
-Delete:    remove_transaction()<br />
+Create -    borrow_book(), return_book()<br />
+Read -      search_transaction_by_id(), search_transaction_by_user_id()<br />
+Update -    update_transaction_status()<br />
+Delete -   remove_transaction()<br />
 
 # Performance Report:
 
