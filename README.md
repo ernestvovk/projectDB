@@ -50,11 +50,13 @@ Create: add_book()
 Read: search_book_by_id(), search_book_by_isbn()
 Update: update_book()
 Delete: remove_book()
+
 Users:
 Create: add_user()
 Read: search_user_by_id()
 Update: update_user()
 Delete: remove_user()
+
 Transactions:
 Create: borrow_book(), return_book()
 Read: search_transaction_by_id(), search_transaction_by_user_id()
