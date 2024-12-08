@@ -13,55 +13,55 @@ Books Table:
 
 Columns:<br />
 book_id - Unique ID of the book (Primary Key).<br />
-title: Title of the book.<br />
-author: Author of the book.<br />
-isbn: ISBN number of the book.<br />
-is_available: Boolean indicating whether the book is available for borrowing.<br />
+title - Title of the book.<br />
+author - Author of the book.<br />
+isbn - ISBN number of the book.<br />
+is_available - Boolean indicating whether the book is available for borrowing.<br />
 
 Users Table:
 
 Columns:<br />
-user_id: Unique ID of the user (Primary Key).<br />
-name: Name of the user.<br />
-contact_details: Email of the user.<br />
+user_id - Unique ID of the user (Primary Key).<br />
+name - Name of the user.<br />
+contact_details - Email of the user.<br />
 
 Transactions Table:
 
 Columns:<br />
-transaction_id: Unique transaction ID (Primary Key).<br />
-user_id: Foreign key referencing the Users table.<br />
-book_id: Foreign key referencing the Books table.<br />
-transaction_type: Type of transaction (borrow or return).<br />
-transaction_date: Timestamp of when the transaction occurred.<br />
-return_date: Expected date for the book to be returned.<br />
-status: Status of the transaction (borrowed or returned).<br />
+transaction_id - Unique transaction ID (Primary Key).<br />
+user_id -  Foreign key referencing the Users table.<br />
+book_id -  Foreign key referencing the Books table.<br />
+transaction_type - Type of transaction (borrow or return).<br />
+transaction_date - Timestamp of when the transaction occurred.<br />
+return_date - Expected date for the book to be returned.<br />
+status - Status of the transaction (borrowed or returned).<br />
 
 # Hashing Implementation
 
-book_by_id: Stores books indexed by book_id. <br />
-book_by_isbn: Stores books indexed by isbn.<br />
-user_by_id: Stores users indexed by user_id. <br />
-loan_by_id: Stores transactions indexed by transaction_id. <br />
+book_by_id - Stores books indexed by book_id. <br />
+book_by_isbn - Stores books indexed by isbn.<br />
+user_by_id - Stores users indexed by user_id. <br />
+loan_by_id - Stores transactions indexed by transaction_id. <br />
 
-# Supported Operation (CRUD)
+# Supported Operation (CRUD)   
 
 Books:<br />
-Create: add_book()<br />
-Read: search_book_by_id(), search_book_by_isbn()<br />
-Update: update_book()<br />
-Delete: remove_book()<br />
+Create:    add_book()<br />
+Read:      search_book_by_id(), search_book_by_isbn()<br />
+Update:    update_book()<br />
+Delete:    remove_book()<br />
 
 Users:<br />
-Create: add_user()<br />
-Read: search_user_by_id()<br />
-Update: update_user()<br />
-Delete: remove_user()<br />
+Create:    add_user()<br />
+Read:      search_user_by_id()<br />
+Update:    update_user()<br />
+Delete:    remove_user()<br />
 
 Transactions:<br />
-Create: borrow_book(), return_book()<br />
-Read: search_transaction_by_id(), search_transaction_by_user_id()<br />
-Update: update_transaction_status()<br />
-Delete: remove_transaction()<br />
+Create:    borrow_book(), return_book()<br />
+Read:      search_transaction_by_id(), search_transaction_by_user_id()<br />
+Update:    update_transaction_status()<br />
+Delete:    remove_transaction()<br />
 
 # Performance Report:
 
