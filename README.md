@@ -3,7 +3,7 @@
 This system is a basic example of a library management system that uses three database tables: Books, Users, Transactions.
 To optimize performance, the system uses in-memory hash tables for frequently accessed data, while SQLite is used as the persistent storage system.
 
-First part of the code is the implementation of LibrarySQL class< br / >
+First part of the code is the implementation of LibrarySQL class<br />
 Second is where I generated the test cases
 Third is where I tracked the time of the test cases
 
