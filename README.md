@@ -4,85 +4,85 @@ This system is a basic example of a library management system that uses three da
 To optimize performance, the system uses in-memory hash tables for frequently accessed data, while SQLite is used as the persistent storage system.
 
 First part of the code is the implementation of LibrarySQL class<br />
-Second is where I generated the test cases
+Second is where I generated the test cases<br />
 Third is where I tracked the time of the test cases
 
 # Schema Design
 
 Books Table:
 
-Columns:
-book_id: Unique ID of the book (Primary Key). <br/>
-title: Title of the book.
-author: Author of the book.
-isbn: ISBN number of the book.
-is_available: Boolean indicating whether the book is available for borrowing.
+Columns:<br />
+book_id: Unique ID of the book (Primary Key).<br />
+title: Title of the book.<br />
+author: Author of the book.<br />
+isbn: ISBN number of the book.<br />
+is_available: Boolean indicating whether the book is available for borrowing.<br />
 
 Users Table:
 
-Columns:
-user_id: Unique ID of the user (Primary Key).
-name: Name of the user.
-contact_details: Email of the user.
+Columns:<br />
+user_id: Unique ID of the user (Primary Key).<br />
+name: Name of the user.<br />
+contact_details: Email of the user.<br />
 
 Transactions Table:
 
-Columns:
-transaction_id: Unique transaction ID (Primary Key).
-user_id: Foreign key referencing the Users table.
-book_id: Foreign key referencing the Books table.
-transaction_type: Type of transaction (borrow or return).
-transaction_date: Timestamp of when the transaction occurred.
-return_date: Expected date for the book to be returned.
-status: Status of the transaction (borrowed or returned).
+Columns:<br />
+transaction_id: Unique transaction ID (Primary Key).<br />
+user_id: Foreign key referencing the Users table.<br />
+book_id: Foreign key referencing the Books table.<br />
+transaction_type: Type of transaction (borrow or return).<br />
+transaction_date: Timestamp of when the transaction occurred.<br />
+return_date: Expected date for the book to be returned.<br />
+status: Status of the transaction (borrowed or returned).<br />
 
 # Hashing Implementation
 
-book_by_id: Stores books indexed by book_id. 
-book_by_isbn: Stores books indexed by isbn.
-user_by_id: Stores users indexed by user_id. 
-loan_by_id: Stores transactions indexed by transaction_id. 
+book_by_id: Stores books indexed by book_id. <br />
+book_by_isbn: Stores books indexed by isbn.<br />
+user_by_id: Stores users indexed by user_id. <br />
+loan_by_id: Stores transactions indexed by transaction_id. <br />
 
 # Supported Operation (CRUD)
 
-Books:
-Create: add_book()
-Read: search_book_by_id(), search_book_by_isbn()
-Update: update_book()
-Delete: remove_book()
+Books:<br />
+Create: add_book()<br />
+Read: search_book_by_id(), search_book_by_isbn()<br />
+Update: update_book()<br />
+Delete: remove_book()<br />
 
-Users:
-Create: add_user()
-Read: search_user_by_id()
-Update: update_user()
-Delete: remove_user()
+Users:<br />
+Create: add_user()<br />
+Read: search_user_by_id()<br />
+Update: update_user()<br />
+Delete: remove_user()<br />
 
-Transactions:
-Create: borrow_book(), return_book()
-Read: search_transaction_by_id(), search_transaction_by_user_id()
-Update: update_transaction_status()
-Delete: remove_transaction()
+Transactions:<br />
+Create: borrow_book(), return_book()<br />
+Read: search_transaction_by_id(), search_transaction_by_user_id()<br />
+Update: update_transaction_status()<br />
+Delete: remove_transaction()<br />
 
 # Performance Report:
 
-Insertion Time
+Insertion Time<br />
 
 Hash Tables: The time taken to insert book and user data into in-memory hash tables was approximately 0.0018 seconds. This demonstrates the efficiency of hash tables for insertions due to their constant-time complexity.
 
-SQLite Database: The insertion time for SQLite isn't explicitly measured in the code. However, we can infer its performance from the overall execution time of adding 1000 books. It took approximately 2.54 seconds to generate and store 1000 books in SQLite. This suggests that SQLite insertion time is longer than hash table insertion, but this difference can be considered insignificant when dealing with 1000 books or less.
+SQLite Database: The insertion time for SQLite isn't explicitly measured in the code. However, we can infer its performance from the overall execution time of adding 1000 books. It took approximately 2.54 seconds to generate and store 1000 books in SQLite. This suggests that SQLite insertion time is longer than hash table insertion, but this difference can be considered insignificant when dealing with 1000 books or less.<br />
 
-Query Time
+Query Time<br />
 
-Hash Tables: Hash tables excel in query performance, especially for retrieving data by a unique key.
-Average query time for book by ID: 0.000002 seconds
-Average query time for book by ISBN: 0.000001 seconds
-Average query time for user by ID: 0.000001 seconds
+Hash Tables: Hash tables excel in query performance, especially for retrieving data by a unique key.<br />
+Average query time for book by ID: 0.000002 seconds<br />
+Average query time for book by ISBN: 0.000001 seconds<br />
+Average query time for user by ID: 0.000001 seconds<br />
 
-SQLite Database: While SQLite's query time is generally slower than hash tables, it remains reasonably fast for smaller datasets.
-Average query time for book by ID: 0.000027 seconds
-Average query time for book by ISBN: 0.000015 seconds
-Average query time for user by ID: 0.000015 seconds
+SQLite Database: While SQLite's query time is generally slower than hash tables, it remains reasonably fast for smaller datasets.<br />
+Average query time for book by ID: 0.000027 seconds<br />
+Average query time for book by ISBN: 0.000015 seconds<br />
+Average query time for user by ID: 0.000015 seconds<br />
 
-Range-Based Retrieval
+Range-Based Retrieval<br />
 
 The range-based retrieval performance was observed by querying Transactions table within a date range. This query execution took approximately 0.0001 seconds, indicating efficient range-based filtering.
